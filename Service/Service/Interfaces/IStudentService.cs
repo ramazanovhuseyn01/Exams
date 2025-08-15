@@ -1,0 +1,21 @@
+﻿using Application.DTOs.Student;
+using Service.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Service.Service.Interfaces
+{
+    public interface IStudentService
+    {
+        Task<ServiceResult> CreateAsync(StudentCreateAndUpdateDto Student);
+        Task<List<StudentListDto>> GetAllAsync();
+        Task<ServiceResult> DeleteAsync(int id);
+        Task<ServiceResult> SoftDeleteAsync(int id);
+        Task<ServiceResult> UpdateAsync(int id, StudentCreateAndUpdateDto Student);
+        Task<List<StudentListDto>> SearchAsync(string? searchText);
+        Task<StudentListDto> GetByIdAsync(int id);
+    }
+}
