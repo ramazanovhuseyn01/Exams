@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\husey\\source\\repos\\Exams\\Repository\\Repository.csproj": {}
+    "C:\\Users\\husey\\OneDrive\\Desktop\\exams prosys\\Exams\\Repository\\Repository.csproj": {}
   },
   "projects": {
-    "C:\\Users\\husey\\source\\repos\\Exams\\Domain\\Domain.csproj": {
+    "C:\\Users\\husey\\OneDrive\\Desktop\\exams prosys\\Exams\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\husey\\source\\repos\\Exams\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\husey\\OneDrive\\Desktop\\exams prosys\\Exams\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\husey\\source\\repos\\Exams\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\husey\\OneDrive\\Desktop\\exams prosys\\Exams\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\husey\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\husey\\source\\repos\\Exams\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\husey\\OneDrive\\Desktop\\exams prosys\\Exams\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\husey\\source\\repos\\Exams\\Repository\\Repository.csproj": {
+    "C:\\Users\\husey\\OneDrive\\Desktop\\exams prosys\\Exams\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\husey\\source\\repos\\Exams\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\husey\\OneDrive\\Desktop\\exams prosys\\Exams\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\husey\\source\\repos\\Exams\\Repository\\Repository.csproj",
+        "projectPath": "C:\\Users\\husey\\OneDrive\\Desktop\\exams prosys\\Exams\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\husey\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\husey\\source\\repos\\Exams\\Repository\\obj\\",
+        "outputPath": "C:\\Users\\husey\\OneDrive\\Desktop\\exams prosys\\Exams\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -97,8 +97,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\husey\\source\\repos\\Exams\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\husey\\source\\repos\\Exams\\Domain\\Domain.csproj"
+              "C:\\Users\\husey\\OneDrive\\Desktop\\exams prosys\\Exams\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\husey\\OneDrive\\Desktop\\exams prosys\\Exams\\Domain\\Domain.csproj"
               }
             }
           }

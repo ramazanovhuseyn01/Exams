@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JQB2wrr+zK0=",
+  "dgSpecHash": "uy5/iC/MLxU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\husey\\source\\repos\\Exams\\Service\\Service.csproj",
+  "projectFilePath": "C:\\Users\\husey\\OneDrive\\Desktop\\exams prosys\\Exams\\Service\\Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\husey\\.nuget\\packages\\automapper\\15.0.1\\automapper.15.0.1.nupkg.sha512",
     "C:\\Users\\husey\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.8\\microsoft.entityframeworkcore.9.0.8.nupkg.sha512",
