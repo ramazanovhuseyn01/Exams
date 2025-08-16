@@ -5,6 +5,7 @@ using Domain.Entities;
 using Repository.Repositories.Interfaces;
 using Service.DTOs.Exam;
 using Service.Helpers;
+using Service.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Service.Service.Implementations
 {
-    public class ExamService
+    public class ExamService : IExamService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -81,7 +82,7 @@ namespace Service.Service.Implementations
             await _unitOfWork.Repository<Exam>().Update(exam);
             await _unitOfWork.CommitAsync();
 
-            return ServiceResult.Succeed("Lesson soft deleted successfully.");
+            return ServiceResult.Succeed("Exam soft deleted successfully.");
         }
 
         public async Task<ServiceResult> UpdateAsync(int id, ExamCreateAndUpdateDto exam)

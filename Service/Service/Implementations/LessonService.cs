@@ -3,6 +3,7 @@ using AutoMapper;
 using Domain.Entities;
 using Repository.Repositories.Interfaces;
 using Service.Helpers;
+using Service.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Service.Service.Implementations
 {
-    public class LessonService
+    public class LessonService : ILessonService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
