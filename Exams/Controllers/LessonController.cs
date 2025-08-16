@@ -1,7 +1,10 @@
 ﻿using Application.DTOs.Lesson;
 using Microsoft.AspNetCore.Mvc;
-using Service.Service.Interfaces;
-using Service.Helpers;
+using Application.Service.Interfaces;
+using Application.Helpers;
+using MediatR;
+using Application.Features.Commands.Exam;
+using Application.Features.Queries.Lesson;
 
 namespace Exam.Api.Controllers
 {
@@ -11,11 +14,13 @@ namespace Exam.Api.Controllers
     {
         private readonly ILessonService _lessonService;
         private readonly ILogger<LessonController> _logger;
+        private readonly IMediator _mediator;
 
-        public LessonController(ILessonService lessonService, ILogger<LessonController> logger)
+        public LessonController(ILessonService lessonService, ILogger<LessonController> logger, IMediator mediator)
         {
             _lessonService = lessonService;
             _logger = logger;
+            _mediator = mediator;
         }
 
         [HttpGet("GetAll")]
@@ -23,7 +28,7 @@ namespace Exam.Api.Controllers
         {
             try
             {
-                var result = await _lessonService.GetAllAsync();
+                var result = await _mediator.Send(new GetAllLessonQuery());
                 return Ok(result);
             }
             catch (Exception ex)
@@ -34,16 +39,16 @@ namespace Exam.Api.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<IActionResult> CreateLesson(LessonCreateAndUpdateDto lesson)
+        public async Task<IActionResult> CreateLesson(CreateLessonCommand command)
         {
-            var result = await _lessonService.CreateAsync(lesson);
+            var result = await _mediator.Send(command);
             return Ok(result);
         }
 
         [HttpPut("Edit/{id}")]
-        public async Task<IActionResult> UpdateLesson(int id, LessonCreateAndUpdateDto lesson)
+        public async Task<IActionResult> UpdateLesson(int id, UpdateLessonCommand command)
         {
-            var result = await _lessonService.UpdateAsync(id, lesson);
+            var result = await _mediator.Send(command);
             return Ok(result);
         }
 

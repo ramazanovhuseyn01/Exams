@@ -156,17 +156,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LessonCreateAndUpdateDto"
+                "$ref": "#/components/schemas/CreateLessonCommand"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/LessonCreateAndUpdateDto"
+                "$ref": "#/components/schemas/CreateLessonCommand"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/LessonCreateAndUpdateDto"
+                "$ref": "#/components/schemas/CreateLessonCommand"
               }
             }
           }
@@ -198,17 +198,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LessonCreateAndUpdateDto"
+                "$ref": "#/components/schemas/UpdateLessonCommand"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/LessonCreateAndUpdateDto"
+                "$ref": "#/components/schemas/UpdateLessonCommand"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/LessonCreateAndUpdateDto"
+                "$ref": "#/components/schemas/UpdateLessonCommand"
               }
             }
           }
@@ -484,49 +484,36 @@
           }
         }
       }
-    },
-    "/WeatherForecast": {
-      "get": {
-        "tags": [
-          "WeatherForecast"
-        ],
-        "operationId": "GetWeatherForecast",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
+      "CreateLessonCommand": {
+        "type": "object",
+        "properties": {
+          "lessonCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "lessonName": {
+            "type": "string",
+            "nullable": true
+          },
+          "class": {
+            "type": "number",
+            "format": "double"
+          },
+          "teacherFirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "teacherLastName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ExamCreateAndUpdateDto": {
         "type": "object",
         "properties": {
@@ -553,32 +540,6 @@
         },
         "additionalProperties": false
       },
-      "LessonCreateAndUpdateDto": {
-        "type": "object",
-        "properties": {
-          "lessonCode": {
-            "type": "string",
-            "nullable": true
-          },
-          "lessonName": {
-            "type": "string",
-            "nullable": true
-          },
-          "class": {
-            "type": "number",
-            "format": "double"
-          },
-          "teacherFirstName": {
-            "type": "string",
-            "nullable": true
-          },
-          "teacherLastName": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "StudentCreateAndUpdateDto": {
         "type": "object",
         "properties": {
@@ -601,23 +562,30 @@
         },
         "additionalProperties": false
       },
-      "WeatherForecast": {
+      "UpdateLessonCommand": {
         "type": "object",
         "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "temperatureC": {
+          "lessonId": {
             "type": "integer",
             "format": "int32"
           },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
+          "lessonCode": {
+            "type": "string",
+            "nullable": true
           },
-          "summary": {
+          "lessonName": {
+            "type": "string",
+            "nullable": true
+          },
+          "class": {
+            "type": "number",
+            "format": "double"
+          },
+          "teacherFirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "teacherLastName": {
             "type": "string",
             "nullable": true
           }

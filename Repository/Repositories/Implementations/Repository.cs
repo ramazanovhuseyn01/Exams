@@ -1,15 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Base;
+using Microsoft.EntityFrameworkCore;
 using Repository.Data;
 using Repository.Repositories.Interfaces;
 using System.Linq.Expressions;
 
 namespace Repository.Repositories.Implementations
 {
-    public class Repository<T> : IRepository<T>, IDisposable where T : class
+    public class Repository<T> : IRepository<T> where T : BaseEntity
     {
         private readonly AppDbContext _context;
         private readonly DbSet<T> _entities;
-        private bool _disposed = false;
 
         public Repository(AppDbContext context)
         {
@@ -46,15 +46,15 @@ namespace Repository.Repositories.Implementations
                 query = query.Include(include);
             }
 
-            T entity = await query.FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id)
-                        ?? throw new KeyNotFoundException($"Entity with ID {id} not found.");
+            T entity = await query.FirstOrDefaultAsync(e => e.Id == id && !e.SoftDeleted)
+                            ?? throw new KeyNotFoundException($"Entity with ID {id} not found.");
 
             return entity;
         }
 
         public async Task<List<T>> GetAll(params Expression<Func<T, object>>[] includes)
         {
-            IQueryable<T> query = _entities;
+            IQueryable<T> query = _entities.Where(x => !x.SoftDeleted);
 
             foreach (var include in includes)
             {
@@ -64,20 +64,17 @@ namespace Repository.Repositories.Implementations
             return await query.AsNoTracking().ToListAsync();
         }
 
+        public async Task SoftDelete(T entity)
+        {
+            T? model = await _entities.FirstOrDefaultAsync(m => m.Id == entity.Id) ?? throw new NullReferenceException();
+            model.SoftDeleted = true;
+        }
+
         public async Task Update(T entity)
         {
             if (entity == null) throw new NullReferenceException();
 
             _entities.Update(entity);
-        }
-
-        public void Dispose()
-        {
-            if (!_disposed)
-            {
-                _context.Dispose();
-                _disposed = true;
-            }
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
-using Service.DTOs.Exam;
-using Service.Service.Implementations;
-using Service.Service.Interfaces;
+using Application.DTOs.Exam;
+using Application.Service.Implementations;
+using Application.Service.Interfaces;
 
 namespace Exam.Api.Controllers
 {

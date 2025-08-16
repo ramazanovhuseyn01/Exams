@@ -1,4 +1,5 @@
-﻿using Repository.Data;
+﻿using Domain.Base;
+using Repository.Data;
 using Repository.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories.Implementations
 {
-    public class UnitOfWork : IUnitOfWork, IDisposable
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
         private readonly Dictionary<Type, object> _repositories = new Dictionary<Type, object>();
@@ -25,25 +26,18 @@ namespace Repository.Repositories.Implementations
             return await _context.SaveChangesAsync();
         }
 
-        void IDisposable.Dispose()
-        {
-            _context.Dispose();
+        public void Dispose() => _context.Dispose();
 
-            foreach (var repo in _repositories.Values.OfType<IDisposable>())
-            {
-                repo.Dispose();
-            }
-        }
-
-        public IRepository<T> Repository<T>() where T : class
+        public IRepository<T> Repository<T>() where T : BaseEntity
         {
             if (_repositories.ContainsKey(typeof(T)))
             {
                 return (IRepository<T>)_repositories[typeof(T)];
             }
-            var repository = new Lazy<IRepository<T>>(() => new Repository<T>(_context));
+
+            var repository = new Repository<T>(_context);
             _repositories[typeof(T)] = repository;
-            return repository.Value;
+            return repository;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Application.DTOs.Student;
 using Microsoft.AspNetCore.Mvc;
-using Service.Service.Interfaces;
+using Application.Service.Interfaces;
 
 namespace Exam.Api.Controllers
 {

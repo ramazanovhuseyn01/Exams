@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "exam",
-        "Type": "Service.DTOs.Exam.ExamCreateAndUpdateDto",
+        "Type": "Application.DTOs.Exam.ExamCreateAndUpdateDto",
         "IsRequired": true
       }
     ],
@@ -46,7 +46,7 @@
       },
       {
         "Name": "exam",
-        "Type": "Service.DTOs.Exam.ExamCreateAndUpdateDto",
+        "Type": "Application.DTOs.Exam.ExamCreateAndUpdateDto",
         "IsRequired": true
       }
     ],
@@ -87,8 +87,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "lesson",
-        "Type": "Application.DTOs.Lesson.LessonCreateAndUpdateDto",
+        "Name": "command",
+        "Type": "Application.Features.Commands.Exam.CreateLessonCommand",
         "IsRequired": true
       }
     ],
@@ -124,8 +124,8 @@
         "IsRequired": true
       },
       {
-        "Name": "lesson",
-        "Type": "Application.DTOs.Lesson.LessonCreateAndUpdateDto",
+        "Name": "command",
+        "Type": "Application.Features.Commands.Exam.UpdateLessonCommand",
         "IsRequired": true
       }
     ],
@@ -299,26 +299,5 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Exams.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Exams.WeatherForecast, API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
   }
 ]

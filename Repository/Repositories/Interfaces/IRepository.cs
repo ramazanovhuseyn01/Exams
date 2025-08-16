@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories.Interfaces
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<T> where T : BaseEntity
     {
         Task<List<T>> GetAll(params Expression<Func<T, object>>[] includes);
 
@@ -18,6 +19,8 @@ namespace Repository.Repositories.Interfaces
         Task Update(T entity);
 
         Task Delete(T entity);
+
+        Task SoftDelete(T entity);
 
         Task<List<T>> FindAllAsync(Expression<Func<T, bool>> expression);
     }
