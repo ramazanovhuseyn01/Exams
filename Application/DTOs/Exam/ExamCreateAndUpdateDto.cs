@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.DTOs.Exam
+namespace Application.DTOs.Exam
 {
     public class ExamCreateAndUpdateDto
     {

@@ -8,9 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using Service.DTOs.Exam;
 
-namespace Service.Mappings
+namespace Application.Mappings
 {
     public class MappingProfile : Profile
     {
