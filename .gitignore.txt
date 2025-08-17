@@ -1,7 +1,10 @@
+# Visual Studio
 .vs/
-bin/
-obj/
+
+# Build output (hər qatda)
+**/bin/
+**/obj/
+
+# User-specific
 *.user
 *.suo
-/Exams/obj/
-/Exams/API/obj
